@@ -1,0 +1,79 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "mouse Microsoft",
+        "value": 15.90,
+        "onDeal": false,
+        "dealValue": 0,
+        "image": "mouse.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Teclado Microsoft",
+        "value": 30.00,
+        "onDeal": false,
+        "dealValue": 0,
+        "image": "teclado.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Monitor Samsung",
+        "value": 250.00,
+        "onDeal": false,
+        "dealValue": 0,
+        "image": "monitor.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Laptop Asus",
+        "value": 3000.00,
+        "onDeal": true,
+        "dealValue": 999.90,
+        "image": "laptop.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Headset Microsoft",
+        "value": 10.50,
+        "onDeal": false,
+        "dealValue": 0,
+        "image": "headset.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Webcam Logitech",
+        "value": 90.00,
+        "onDeal": true,
+        "dealValue": 49.99,
+        "image": "webcam.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Galaxy S10+",
+        "value": 3000.00,
+        "onDeal": false,
+        "dealValue": 0,
+        "image": "celular.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Mousepad Microsoft",
+        "value": 5.50,
+        "onDeal": false,
+        "dealValue": 0,
+        "image": "mousepad.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Go Pro 8",
+        "value": 300.00,
+        "onDeal": false,
+        "dealValue": 0,
+        "image": "gopro.jpg"
+      }
+    ],
+    "posts": [
+      { "id": 1, "title": "json-server", "author": "typicode" }
+    ]
+  }

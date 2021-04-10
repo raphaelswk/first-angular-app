@@ -1,0 +1,50 @@
+<div class="container main-container">
+    <h3>Interpolation</h3>
+    <!-- <p>The click numbers is {{ clickCounter }}</p> -->
+
+    <p [ngClass]="{
+        'text-secondary':clickCounter < 3,
+        'text-success':clickCounter >= 3,
+        'text-warning':clickCounter >= 5,
+        'text-danger':clickCounter >= 9
+    }">
+        The click numbers is {{ clickCounter }}
+    </p>
+
+    <br>
+    <br>
+
+    <h3>Property Binding</h3>
+    <button class="btn btn-info" [disabled]="clickCounter >= 10">
+        Click me!
+    </button>
+
+    <br>
+    <br>
+
+    <img [src]="imageUrl" height="100px" width="100px" />
+
+    <br>
+    <br>
+    <br>
+    <h3>Event Binding</h3>
+    <button class="btn btn-success" (click)='addClick()'>
+        Click me again!
+    </button>
+    &nbsp;
+    <button class="btn btn-primary" (click)='resetCounter()' [disabled]="clickCounter < 10">
+        Reset Counter
+    </button>
+
+    <br>
+    <br>
+    <br>
+    <h3>Two-way Binding</h3>
+    <!-- <input type="text" (keyup)='KeyUp($event)' placeholder="Type your name" /> -->
+    <!-- <input type="text" [ngModel]="name" (ngModelChange)='name = $event' placeholder="Type your name" /> -->
+    <input type="text" [(ngModel)]="name" placeholder="Type your name" />
+    <br>
+    <br>
+    <!-- <label class="{{ name }}">Your name is {{ name }}</label> -->
+    <label [ngClass]="name">Your name is {{ name }}</label>
+</div>
