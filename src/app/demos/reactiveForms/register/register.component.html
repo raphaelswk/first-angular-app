@@ -1,0 +1,144 @@
+<div class="container main-container">
+    <h4>Register</h4>
+    <hr>
+    <form novalidate (ngSubmit)="addUser()" [formGroup]="registerForm">
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">
+                    Full name
+                </label>
+                <div class="col-md-10">
+                    <input id="name" 
+                           class="form-control" 
+                           type="text" 
+                           placeholder="Name (mandatory)" 
+                           formControlName="name" 
+                           [ngClass]="{ 'is-invalid': displayMessage.name }"
+                    />
+                    <span class="text-danger" *ngIf="displayMessage.name">
+                        <p [innerHTML]="displayMessage.name"></p>
+                    </span>
+                    <!-- <input id="name" 
+                           class="form-control" 
+                           type="text" 
+                           placeholder="Name (mandatory)" 
+                           formControlName="name" 
+                           [ngClass]="{'is-invalid': registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched) }"
+                    />
+                    <span class="text-danger" *ngIf="registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched)">
+                        <p>Name is mandatory</p>
+                    </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pps" class="col-md-2 control-label">
+                    PPS
+                </label>
+                <div class="col-md-10">
+                    <input id="pps" 
+                           class="form-control" 
+                           type="text" 
+                           placeholder="PPS (mandatory)" 
+                           formControlName="pps"
+                           cpf [textMask]="{mask: MASKS.cpf.textMask}" 
+                           [ngClass]="{ 'is-invalid': displayMessage.pps }"
+                    />
+                    <span class="text-danger" *ngIf="displayMessage.pps">
+                        <p [innerHTML]="displayMessage.pps"></p>
+                    </span>
+                    <!-- <span class="text-danger" 
+                          *ngIf="registerForm.get('pps')?.errors?.cpf && (registerForm.get('pps').dirty || registerForm.get('pps').touched)">
+                        <p>CPF is invalid</p>
+                    </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="col-md-2 control-label">
+                    Email Address
+                </label>
+                <div class="col-md-10">
+                    <input id="email" 
+                           class="form-control" 
+                           type="text" 
+                           placeholder="Email Address (mandatory)" 
+                           formControlName="email"
+                           [ngClass]="{ 'is-invalid': displayMessage.email }"
+                    />
+                    <span class="text-danger" *ngIf="displayMessage.email">
+                        <p [innerHTML]="displayMessage.email"></p>
+                    </span>
+                    <!-- <span class="text-danger" 
+                          *ngIf="registerForm.get('email')?.errors?.required && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                        <p>Email Address is mandatory</p>
+                    </span>
+                    <span class="text-danger" 
+                          *ngIf="registerForm.get('email')?.errors?.email && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                        <p>Email Address is invalid</p>
+                    </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="col-md-2 control-label">
+                    Password
+                </label>
+                <div class="col-md-10">
+                    <input id="password" 
+                           class="form-control" 
+                           type="password" 
+                           placeholder="Name (mandatory)" 
+                           formControlName="password"
+                           [ngClass]="{ 'is-invalid': displayMessage.password }" 
+                    />
+                    <span class="text-danger" *ngIf="displayMessage.password">
+                        <p [innerHTML]="displayMessage.password"></p>
+                    </span>
+                    <!-- <span class="text-danger" 
+                          *ngIf="registerForm.get('password')?.errors?.rangeLength && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                        <p>Password is invalid</p>
+                    </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword" class="col-md-2 control-label">
+                    Confirm Password
+                </label>
+                <div class="col-md-10">
+                    <input id="confirmPassword" 
+                           class="form-control" 
+                           type="password" 
+                           placeholder="Name (mandatory)" 
+                           formControlName="confirmPassword" 
+                           [ngClass]="{ 'is-invalid': displayMessage.confirmPassword }"
+                    />
+                    <span class="text-danger" *ngIf="displayMessage.confirmPassword">
+                        <p [innerHTML]="displayMessage.confirmPassword"></p>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-2">
+                    <span>
+                        <button type="submit" id="register" class="btn btn-success" [disabled]="!registerForm.valid">
+                            Register
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-2">
+                    <p>Valid Form: {{ registerForm.valid }}</p>
+                    <p>Touched Form: {{ registerForm.touched }}</p>
+                    <p>Dirty Form: {{ registerForm.dirty }}</p>
+                    <p>Form Result: {{ formResult }}</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
