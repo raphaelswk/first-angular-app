@@ -58,8 +58,6 @@ export class ProductDashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('Counter Object: ', this.counter.products);
-
     const clickText: Observable<any> = fromEvent(this.screenMessage.nativeElement, 'click');
     clickText.subscribe(() => {
       alert('Clicked on the text!');

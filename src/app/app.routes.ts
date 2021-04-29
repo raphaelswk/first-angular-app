@@ -5,10 +5,11 @@ import { RegisterComponent } from "./demos/reactiveForms/register/register.compo
 import { AboutComponent } from "./institutional/about/about.component";
 import { ContactComponent } from "./institutional/contact/contact.component";
 import { HomeComponent } from "./navigation/home/home.component";
+import { NotFoundComponent } from "./navigation/not-found/not-found.component";
 import { ListProductsComponent } from "./products/list-products/list-products.component";
 
 export const rootRouteConfig: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },    
     { path: 'home', component: HomeComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'about', component: AboutComponent },
@@ -19,7 +20,9 @@ export const rootRouteConfig: Routes = [
     { path: 'products-dashboard', // LAZY LOAD
             loadChildren: () => import('./demos/architecture-components/product.module')
                 .then(m => m.ProductModule)
-    }
+    },
+    { path: '404', component: NotFoundComponent },
+    { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({

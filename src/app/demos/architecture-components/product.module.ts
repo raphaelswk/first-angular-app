@@ -5,12 +5,16 @@ import { ProductsCountComponent } from "./components/product-count.component";
 import { ProductDashboardComponent } from "./product-dashboard/product-dashboard.component";
 import { ProductRoutingModule } from "./product.route";
 import { ProductService } from "./services/products.service";
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { ProductAppComponent } from "./product.app.component";
 
 @NgModule({
     declarations: [
+        ProductAppComponent,
         ProductDashboardComponent,
         ProductCardDetailComponent,
-        ProductsCountComponent
+        ProductsCountComponent,
+        EditProductComponent
     ],
     imports: [
         CommonModule,

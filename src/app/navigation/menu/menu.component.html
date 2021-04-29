@@ -7,24 +7,57 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/register']">Register</a>
+                <li class="nav-item" *ngFor="let item of nav">
+                    <a class="nav-link" 
+                       [routerLink]="item.link"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{ exact: item.exact }"
+                    >
+                       {{ item.name }}
+                    </a>
                 </li>
                 <!-- <li class="nav-item">
+                    <a class="nav-link" 
+                       routerLinkActive="active"
+                       [routerLink]="['/register']"
+                       [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                       Register
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/products']">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" 
+                       routerLinkActive="active"
+                       [routerLink]="['/products-dashboard']"
+                       [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                        Products Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" 
+                       routerLinkActive="active" 
+                       [routerLink]="['/about']"
+                       [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                        About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" 
+                       routerLinkActive="active" 
+                       [routerLink]="['/contact']"
+                       [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                        Contact
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/feature-data-binding']">Features</a>
                 </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/products-dashboard']">Products Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/about']">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/contact']">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/feature-data-binding']">Features</a>
-                </li>
             </ul>
         </div>
     </div>
