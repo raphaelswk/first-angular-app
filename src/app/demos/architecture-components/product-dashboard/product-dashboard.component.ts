@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { fromEvent, Observable } from 'rxjs';
 import { ProductCardDetailComponent } from '../components/product-card-detail.component';
 import { ProductsCountComponent } from '../components/product-count.component';
@@ -13,7 +14,8 @@ import { ProductService } from '../services/products.service';
 })
 export class ProductDashboardComponent implements OnInit, AfterViewInit {
 
-  constructor(private productService: ProductService) { }  
+  constructor(private productService: ProductService,
+              private route: ActivatedRoute) { }  
 
   public products: Product[];
 
@@ -23,11 +25,15 @@ export class ProductDashboardComponent implements OnInit, AfterViewInit {
   @ViewChildren(ProductCardDetailComponent) cards: QueryList<ProductCardDetailComponent>;
 
   ngOnInit(): void {
-    this.productService.getProducts()
-        .subscribe(products => {
-          this.products = products;
-        },
-        error => console.log(error));
+    this.products = this.route.snapshot.data['products'];
+
+    console.log(this.route.snapshot.data['test']);
+
+    // this.productService.getProducts('')
+    //     .subscribe(products => {
+    //       this.products = products;
+    //     },
+    //     error => console.log(error));
 
     // this.products = [
     //   {
@@ -63,11 +69,10 @@ export class ProductDashboardComponent implements OnInit, AfterViewInit {
       alert('Clicked on the text!');
       return;
     });
-
-    console.log(this.cards);
-    this.cards.forEach(p => {
-      console.log(p.product);
-    })
+    // console.log(this.cards);
+    // this.cards.forEach(p => {
+    //   console.log(p.product);
+    // })
   }
 
   changeOnDeal(event: Product) {

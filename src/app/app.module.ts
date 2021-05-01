@@ -21,6 +21,8 @@ import { ProductService } from './products/products.service';
 import { ListProductsComponent } from './products/list-products/list-products.component';
 import { RegisterComponent } from './demos/reactiveForms/register/register.component';
 import { NavigationModule } from './navigation/navigation.module';
+import { AuthGuard } from './services/app.guard';
+import { RegisterGuard } from './services/register.guard';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { NavigationModule } from './navigation/navigation.module';
   ],
   providers: [
     ProductService,
+    AuthGuard,
+    RegisterGuard,
     { provide: APP_BASE_HREF, useValue: '/' }
   ],
   bootstrap: [AppComponent]

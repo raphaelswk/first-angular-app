@@ -23,6 +23,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   genericValidator: GenericValidator;
   displayMessage: DisplayMessage = {};
 
+  noSavedChanges: boolean;
+
   constructor(private fb: FormBuilder) { 
     this.validationMessages = {
       name: {
@@ -57,7 +59,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     const confirmPassword = new FormControl('', [Validators.required, CustomValidators.rangeLength([6,15]), CustomValidators.equalTo(password)]);
 
     this.registerForm = this.fb.group({
-      name: ['', [Validators.required, CustomValidators.min(2), CustomValidators.max(150)]],
+      name: ['', [Validators.required, CustomValidators.minLength(2), CustomValidators.max(150)]],
       pps: ['', [Validators.required, NgBrazilValidators.cpf]],
       email: ['', [Validators.required, Validators.email]],
       password: password,
@@ -71,6 +73,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
     merge(...controlBlurs).subscribe(() => {
       this.displayMessage = this.genericValidator.processMessages(this.registerForm);
+      this.noSavedChanges = true;
     });
   } 
 
@@ -78,6 +81,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     if (this.registerForm.dirty && this.registerForm.valid) {
       this.user = Object.assign({}, this.user, this.registerForm.value);
       this.formResult = JSON.stringify(this.registerForm.value); 
+      this.noSavedChanges = false;
     }
     else {
       this.formResult = "Not valid"
