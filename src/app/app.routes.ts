@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { DataBindingComponent } from "./demos/data-binding/data-binding.component";
+import { MoviesComponent } from "./demos/pipes/movies/movies.component";
 import { RegisterComponent } from "./demos/reactiveForms/register/register.component";
 import { AboutComponent } from "./institutional/about/about.component";
 import { ContactComponent } from "./institutional/contact/contact.component";
@@ -16,7 +17,7 @@ export const rootRouteConfig: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'about', component: AboutComponent },
     { path: 'feature-data-binding', component: DataBindingComponent },
-    { path: 'products', component: ListProductsComponent },
+    { path: 'products', component: ListProductsComponent },    
     { path: 'product-details/:id', component: ListProductsComponent },
     { path: 'register', component: RegisterComponent, canDeactivate: [RegisterGuard] },
     { path: 'products-dashboard', // LAZY LOADING
@@ -29,6 +30,7 @@ export const rootRouteConfig: Routes = [
             canLoad: [AuthGuard],
             canActivate: [AuthGuard]
     },
+    { path: 'movies', component: MoviesComponent },
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '/404' }
 ];

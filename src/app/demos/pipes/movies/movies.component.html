@@ -1,0 +1,24 @@
+<div class="container main-container">
+    <h1>Movies</h1>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Price</th>
+                <th scope="col">File Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of mappedMovies">
+                <img [src]="movie.image" style="padding-bottom: 5px;max-height: 100px;">
+                <td>{{ movie.name | titlecase }}</td>
+                <td>{{ movie.releaseDate | date:"dd/MM/yyyy" }}</td>
+                <td>{{ movie.price | currency:'EUR' }}</td>
+                <td>{{ movie.size | filesize }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

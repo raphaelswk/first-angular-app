@@ -23,6 +23,9 @@ import { RegisterComponent } from './demos/reactiveForms/register/register.compo
 import { NavigationModule } from './navigation/navigation.module';
 import { AuthGuard } from './services/app.guard';
 import { RegisterGuard } from './services/register.guard';
+import { MoviesComponent } from './demos/pipes/movies/movies.component';
+import { FileSizePipe } from './demos/pipes/movies/filesize.pipe';
+import { ImageFormaterPipe } from './demos/pipes/movies/image.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { RegisterGuard } from './services/register.guard';
     ContactComponent,
     DataBindingComponent,
     ListProductsComponent,
-    RegisterComponent
+    RegisterComponent,
+    MoviesComponent,
+    FileSizePipe,
+    ImageFormaterPipe
   ],
   imports: [
     BrowserModule,
