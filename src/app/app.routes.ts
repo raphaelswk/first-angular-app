@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { BarComponent } from "./demos/bar-di-zones/bar.component";
 import { DataBindingComponent } from "./demos/data-binding/data-binding.component";
 import { MoviesComponent } from "./demos/pipes/movies/movies.component";
 import { RegisterComponent } from "./demos/reactiveForms/register/register.component";
@@ -31,6 +32,7 @@ export const rootRouteConfig: Routes = [
             canActivate: [AuthGuard]
     },
     { path: 'movies', component: MoviesComponent },
+    { path: 'bar', component: BarComponent },
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '/404' }
 ];

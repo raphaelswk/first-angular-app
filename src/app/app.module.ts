@@ -26,6 +26,13 @@ import { RegisterGuard } from './services/register.guard';
 import { MoviesComponent } from './demos/pipes/movies/movies.component';
 import { FileSizePipe } from './demos/pipes/movies/filesize.pipe';
 import { ImageFormaterPipe } from './demos/pipes/movies/image.pipe';
+import { BarModule } from './demos/bar-di-zones/bar.module';
+import { BarServices } from './demos/bar-di-zones/bar.service';
+import { Provider } from '@angular/compiler/src/core';
+
+export const BAR_PROVIDER: Provider[] = [
+  BarServices
+];
 
 @NgModule({
   declarations: [
@@ -37,7 +44,7 @@ import { ImageFormaterPipe } from './demos/pipes/movies/image.pipe';
     RegisterComponent,
     MoviesComponent,
     FileSizePipe,
-    ImageFormaterPipe
+    ImageFormaterPipe,    
   ],
   imports: [
     BrowserModule,
@@ -48,12 +55,17 @@ import { ImageFormaterPipe } from './demos/pipes/movies/image.pipe';
     TextMaskModule,
     NgBrazil,
     CustomFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BarModule.forRoot({
+      branchId: 100,
+      branchToken: 'xad9s87vd0asf9v87adva'
+    })
   ],
   providers: [
     ProductService,
     AuthGuard,
     RegisterGuard,
+    // BAR_PROVIDER,
     { provide: APP_BASE_HREF, useValue: '/' }
   ],
   bootstrap: [AppComponent]
