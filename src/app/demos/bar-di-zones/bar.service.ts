@@ -23,7 +23,7 @@ export class BarServices {
     }
 
     getDrinks(): string {
-        return 'Drinks';
+        return 'Drinks!!';
     }
 
     getFingerFoods(): string {
@@ -51,4 +51,8 @@ export class BarServicesMock {
     getMeals(): string {
         return 'Mock';
     }
+}
+
+export abstract class DrinkService {
+    getDrinks: () => string
 }

@@ -14,6 +14,18 @@
     </div>
 
     <div>
+        Drink 2: {{ barDrink2 }}
+    </div>
+
+    <div>
         Data Branch: {{ dataBranch }}
-    </div>    
+    </div>
+
+    <br><br><br><br>
+
+    <h2>Progress: {{ progress }} %</h2>
+    <p *ngIf="progress >= 100">Done processing {{label}} of Angular Zone!</p>
+
+    <a href="javascript:void(0)" class="btn btn-success" (click)="processWithinAngularZone()">Process Within Angular Zone</a>&nbsp;
+    <a href="javascript:void(0)" class="btn btn-primary" (click)="processOutsideAngularZone()">Process Outside Angular Zone</a>
 </div>
