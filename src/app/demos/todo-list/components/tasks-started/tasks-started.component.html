@@ -1,0 +1,5 @@
+<div class="tasks">
+    <todo-list [list]="started$ | async" (toggle)="onToggle($event)">
+        Started
+    </todo-list>
+</div>

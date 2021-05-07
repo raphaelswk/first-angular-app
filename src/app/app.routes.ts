@@ -4,6 +4,7 @@ import { BarComponent } from "./demos/bar-di-zones/bar.component";
 import { DataBindingComponent } from "./demos/data-binding/data-binding.component";
 import { MoviesComponent } from "./demos/pipes/movies/movies.component";
 import { RegisterComponent } from "./demos/reactiveForms/register/register.component";
+import { TodoComponent } from "./demos/todo-list/todo.component";
 import { AboutComponent } from "./institutional/about/about.component";
 import { ContactComponent } from "./institutional/contact/contact.component";
 import { HomeComponent } from "./navigation/home/home.component";
@@ -33,6 +34,7 @@ export const rootRouteConfig: Routes = [
     },
     { path: 'movies', component: MoviesComponent },
     { path: 'bar', component: BarComponent },
+    { path: 'todo', component: TodoComponent },
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '/404' }
 ];
